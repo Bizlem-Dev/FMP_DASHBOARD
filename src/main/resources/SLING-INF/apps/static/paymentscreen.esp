@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PayMent Screen</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.jqueryscript.net/demo/jQuery-Multiple-Select-Plugin-For-Bootstrap-Bootstrap-Multiselect/css/bootstrap-multiselect.css">
+  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+ <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/styles/payment-screen.css">
+  
+  <style type="text/css">
+    .generate-document-dialog{
+      width:30%;
+    }
+  </style>
+</head>
+<body>
+
+
+<section class="content">
+        <div class="row">
+          <div class="col-xs-4">
+          </div>
+          <div class="col-xs-8">
+            <h2 class="title">Payment Screen</h2>
+          </div>
+        </div>
+        <div class="col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-xs-offset-1 col-xs-10">
+        <div class="row">
+          <!-- Type of banking possible -->
+          <div class="type-banking">
+            <div>
+              <input id="internet-banking"  type="radio" name="type-banking">
+              <label>Internet Banking</label><br>
+            </div>
+            <div>
+              <input id="offline"  type="radio" name="type-banking">
+              <label>Offline</label><br>
+            </div>
+
+            <div>
+              <input id="credit-card"  type="radio" name="type-banking">
+              <label>Credit Card</label><br>
+            </div>
+            <div>
+              <input id="echeque/ACH" type="radio" name="type-banking">
+              <label>echeque/ACH</label><br>
+            </div>
+          </div>
+          
+                      <input "type="hidden" name="DTemail" value= "<%=request.getParameter('DTemail')%>" id="DTemail" style="display: none;">
+                      <input "type="hidden" name="DTusertoken" value= "<%=request.getParameter('DTusertoken')%>" id="DTusertoken" style="display: none;">
+                      <input "type="hidden" name="CustomerId" value= "<%=request.getParameter('CustomerId')%>" id="CustomerId" style="display: none;">
+          
+          <div class="payment-details">
+            <table class="payment-details-table">
+              <tr>
+                <td>Pay To</td>
+                <td id="VendorNameid"><%=request.getParameter("VendorName")%></td>
+              </tr>
+              <tr>
+                <td>Invoice Number</td>
+                <td id="InvoiceNumberid" ><%=request.getParameter("InvoiceNumber")%></td>
+              </tr>
+              <tr>
+                <td>Currency</td>
+                <td id="InvoiceCurrencyid"><%=request.getParameter("InvoiceCurrency")%></td>
+              </tr>
+              <tr>
+                <td>Amount</td>
+                <td id="InvoiceAmountid"><%=request.getParameter("InvoiceAmount")%></td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="pay-div">
+            <button type="button" id="pay-now">Pay Now</button>
+            <button type="button" id="pay-offline">Pay Offline</button>
+          </div>
+
+        </div>
+        
+        <div class="row cheque" style="margin-left: 60px;">
+          <div class="cheque-child">
+
+            <div><label class="labels">Bank Name</label></div>
+            <div><select class="form-control" id="bankname" style="margin-left: 35px;">
+                <option  value ="ICICI" selected>ICICI</option>
+                <option value ="HDFC" >HDFC</option>
+                <option  value ="Axis >Axis</option>
+                <option value ="SBI" >SBI</option>
+              </select></div>
+          </div>
+          <div style="margin-left: 11rem;" class="cheque-child">
+            
+            <div><label class="labels">Branch</label></div>
+			<select class="form-control" id="branch" style="margin-left: 55px;">
+			                <option value ="Bandra" selected>Bandra</option>
+                <option value ="Mumbai" >Mumbai</option>
+                <option value ="Pune" >Pune</option>
+              </select>
+           
+          </div>
+        </div>
+        
+
+        <div class="row cheque" style="margin-left: 60px;">
+          <div class="cheque-child">
+            <div><input type="radio" name="utr-number"></div>
+
+            <div><label class="labels">UTR / SWIFT /<br> TRANS Number</label></div>
+            <div><input type="text"  id="UTR_SWIFT_TRANSNoid"></div>
+          </div>
+          <div style="margin-left:2rem" class="cheque-child">
+            <div><input type="radio" name="cheque-number"></div>
+            <div><label class="labels">Cheque Number</label></div>
+            <div><input type="text" id= "ChequeNumberid"></div>
+          </div>
+        </div>
+
+        <div class="row cheque-date" style="margin-left: 130px;">
+          <div class="cheque-date-child">
+            <label style="margin-left:10rem;"class="labels align-date">Date</label>
+            <input type="date" style="width:14rem;" name="date">
+          </div>
+          <div class="cheque-date-child">
+            <label style="margin-left:2rem;" class="labels">Amount</label>
+            <input style="margin-left:5rem;"type="text" name="amount" id="Amountid">
+          </div>
+        </div>
+        <div class="row" style="margin-left: 60px;">
+          <div class="remarks">
+            <label class="labels">Remarks</label>
+            <textarea style="margin-left:4rem;" id="w3mission" rows="4" cols="61">
+            </textarea>
+          </div>
+        </div>
+
+        <div class="row" style="margin-left: 60px;">
+          <div class="save-div">
+           <!--  <button type="button">Edit</button> -->
+            <button type="button" id="paymentSave" onclick="paymentsave()">Save</button>
+          </div>
+        </div>
+      </div>
+      </section>
+      
+ <script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/adminlte.min.js"></script>
+<%-- <script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/custom.js"></script> --%>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<!-- Sparkline -->
+<script src="https://www.jqueryscript.net/demo/jQuery-Multiple-Select-Plugin-For-Bootstrap-Bootstrap-Multiselect/js/bootstrap-multiselect.js"></script>
+      
+      
+      
+      <script>
+    $(".cheque").hide();  //hides the division with class 'cheque'
+    $(".cheque-date").hide();
+    $(".save-div").hide();
+    $(".remarks").hide();
+
+    $("#offline").click(function () {
+      $("#pay-now").hide();
+      $("#pay-offline").hide();
+      $(".cheque").show();
+      $(".cheque-date").show();
+      $(".save-div").show();
+      $(".remarks").show();
+    })
+    $("#internet-banking").click(function () {
+      $("#pay-now").show(); //shows the division with class 'cheque'
+      $("#pay-offline").show();
+      $(".cheque").hide();
+      $(".cheque-date").hide();
+      $(".save-div").hide();
+      $(".remarks").hide();
+    })
+    $("#credit-card").click(function () {
+      $("#pay-now").show();
+      $("#pay-offline").show();
+      $(".cheque").hide();
+      $(".cheque-date").hide();
+      $(".save-div").hide();
+      $(".remarks").hide();
+    })
+    
+    $(document).on("click", "#paymentSave", function () {
+
+	alert("Data Saved SuccessFully.");
+	
+});
+    
+    function paymentsave(){
+    	
+    	
+    	var Payment_type="";
+    	var InvoiceNumber="";
+    	var InvoiceDate="";
+    	var InvoiceAmount="";
+    	var VendorName="";
+    	var Currency="";
+    	var UTR_SWIFT_TRANSNo="";
+    	var ChequeNumber="";
+    	var PDate="";
+    	var Amount="";
+    	var DTemail="";
+    	var DTusertoken="";
+    	var Remarks="";
+    	var CustomerId="";
+    	
+         Payment_type = $("input[name='type-banking']:checked").val();
+         VendorName=document.getElementById("VendorNameid").innerHTML;
+         InvoiceNumber=document.getElementById("InvoiceNumberid").innerHTML;
+         Currency=document.getElementById("InvoiceCurrencyid").innerHTML;
+         InvoiceAmount=document.getElementById("InvoiceAmountid").innerHTML;
+         UTR_SWIFT_TRANSNo=document.getElementById("UTR_SWIFT_TRANSNoid").value;
+         ChequeNumber=document.getElementById("ChequeNumberid").value;
+         var today = new Date();
+			// var date =
+			// today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+			var min = today.getMinutes();
+			if (min < 10) {
+				min = "0" + min;
+			}
+         var time = today.getHours() + ":" + min + ":"
+			+ today.getSeconds();
+         PDate = new Date().toJSON().slice(0, 10);
+	 Amount=document.getElementById("Amountid").value;
+	 DTemail=document.getElementById("DTemail").value;
+	 DTusertoken=document.getElementById("DTusertoken").value;
+	 CustomerId=document.getElementById("CustomerId").value;
+	 
+	 var reqJsonObj={};
+	 reqJsonObj["Payment_type"]=Payment_type;
+     reqJsonObj["InvoiceNumber"]=InvoiceNumber;
+    reqJsonObj["InvoiceDate"]=InvoiceDate;
+   	 reqJsonObj["InvoiceAmount"]=InvoiceAmount;
+   	reqJsonObj["VendorName"]=VendorName;
+   	reqJsonObj["Currency"]=Currency;
+   	reqJsonObj["UTR_SWIFT_TRANSNo"]=UTR_SWIFT_TRANSNo;
+   	reqJsonObj["ChequeNumber"]=ChequeNumber;
+   	reqJsonObj["Date"]=PDate;
+   	   	reqJsonObj["Amount"]=Amount;
+   	   	reqJsonObj["DTemail"]=DTemail;
+   	   	reqJsonObj["DTusertoken"]=DTusertoken;
+   	   	reqJsonObj["CustomerId"]=CustomerId;
+   	 console.log("reqJsonObj: " + reqJsonObj);
+	 $.ajax({
+			type : 'POST',
+			url : '/portal/servlet/service/SAvePaymentData',
+			async : false,
+			data : JSON.stringify(reqJsonObj),
+			contentType : "application/json",
+			success : function(dataa) {
+				console.log("resp : " + dataa);
+				var json = JSON.parse(dataa);
+				
+			}
+		});
+
+    }
+    
+  </script>
+      
+      </body>
+      </html>
+      

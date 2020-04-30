@@ -1,0 +1,250 @@
+ <section class="content col-md-12 col-sm-12 col-xs-12 col-lg-12">
+        <div class="row edit-template">
+          <div class="headline-container">
+            <h3 class="headline">Set Reminders</h3>
+          </div>
+          <div class="tool-tip">
+            <div class="edit-template-headline">
+            
+              <h4>Edit Template  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#addnew"  onclick="displayAddNewTabSrcData();" target="_blank">
+                   <i class="fa fa-file-text-o" aria-hidden="true" data-toggle="tooltip" title="New Create Template"></i>
+               </a>
+			   </h4>
+              
+            </div>
+            <div class="tooltip-edit" >
+              <select class="form-control selectOptionsData">
+                <option>Select Mail</option>
+                <option>Select SMS</option>
+                <option>Select Whatsapp</option>
+                <option>Select Call</option>
+              </select>
+              <select class="form-control setDataBasedOnSelectedOptions">
+                <option>Select Mail</option>
+                <option>Select SMS</option>
+                <option>Select Whatsapp</option>
+                <option>Select Call</option>
+              </select>
+              <a href="#editTemplate" onclick="editTemplateData();" target="_blank"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" title="Edit"></i></a>
+            </div>
+          </div>
+
+        </div>
+       
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <table class="reminder-table table-with-space" id="tableReminderData">
+              <!-- Reminder 1 -->
+              <!-- <tr>
+                <td><input disabled type="radio" name="reminder"></td>
+                <td class="date-background">
+                  <select disabled class="form-control">
+                    <option>Invoice Date</option>
+                    <option>Invoice Due Date</option>
+                  </select>
+
+                </td>
+                <td>
+                  <select disabled class="form-control">
+                    <option>On</option>
+                    <option>Before</option>
+                    <option>After</option>
+                  </select>
+                </td>
+                <td><select disabled class="form-control one-twenty">
+                  </select></td>
+                <td><input type="text" value="Invoice Ready" readonly placeholder=""></td>
+
+                <td>
+                  <select disabled class="form-control">
+                    <option selected>Select Mail</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select disabled class="form-control">
+                    <option selected>Select SMS</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select disabled class="form-control">
+                    <option selected>Select Whatsapp</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select disabled class="form-control">
+                    <option selected>Select Call</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td><i class="fa fa-whatsapp" aria-hidden="true"></i></td>
+              </tr> -->
+              <!-- Reminder 2 -->
+              <!-- <tr>
+                <td><input disabled type="radio" name="reminder"></td>
+                <td class="date-background">
+                  <select disabled class="form-control">
+                    <option>Invoice Date</option>
+                    <option>Invoice Due Date</option>
+                  </select>
+
+                </td>
+                <td>
+                  <select disabled class="form-control">
+                    <option>On</option>
+                    <option>Before</option>
+                    <option>After</option>
+                  </select>
+                </td>
+                <td><select disabled class="form-control one-twenty">
+                  </select></td>
+                <td><input type="text" value="Invoice Ready" readonly placeholder=""></td>
+
+                <td>
+                  <select disabled class="form-control">
+                    <option selected>Select Mail</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select disabled class="form-control">
+                    <option selected>Select SMS</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select disabled class="form-control">
+                    <option selected>Select Whatsapp</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select disabled class="form-control">
+                    <option selected>Select Call</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
+              </tr> -->
+              <!-- Reminder 3 -->
+              <tr style="display:none">
+                <td><input id='reminder' name="reminder" type="radio"></td>
+                <td class="date-background">
+                  <select class="form-control invoiceAndDueDateClass">
+                    <option>Invoice Date</option>
+                    <option>Invoice Due Date</option>
+                  </select>
+
+                </td>
+                <td>
+                  <select class="form-control onBeforeAfterClass">
+                  <option>Select Relation</option>
+                    <option>On</option>
+                    <option>Before</option>
+                    <option>After</option>
+                  </select>
+                </td>
+                <td width="105px">
+                <select class="form-control one-twenty oneTwentyNumbersClass">
+                  </select>
+                  </td>
+                <td>
+                <!-- <input type="text" value="Invoice Ready"  placeholder="" class="invoiceReadyClass"></td> -->
+                <input type="text" value="Event Name"  placeholder="Event Name" class="invoiceReadyClass"></td>
+                <td width="150px">
+                  <select class="form-control selectMailClass">
+                    <option selected>Select Mail</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="form-control selectSmsClass">
+                    <option selected>Select SMS</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="form-control selectWhatsappClass">
+                    <option selected>Select Whatsapp</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="form-control selectCallClass">
+                    <option selected>Select Call</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td><i  class='fa fa-minus' aria-hidden='true'></i></td>
+              </tr>
+              
+              
+			<tr style="background-color:#FFFF99">
+                <td style="background-color:#FFFF99"><input disabled id='reminder' name="reminder" type="radio"></td>
+                <td class="date-background" style="background-color:#FFFF99">
+                  <select disabled class="form-control invoiceAndDueDateClass" id="invoiceAndDueDateId">
+                    <option>Invoice Date</option>
+                    <option>Invoice Due Date</option>
+                  </select>
+
+                </td>
+                <td style="background-color:#FFFF99">
+                  <select disabled class="form-control onBeforeAfterClass" id="onBeforeAfterId">
+                  <option>Select Relation</option>
+                    <option>On</option>
+                    <option>Before</option>
+                    <option>After</option>
+                  </select>
+                </td>
+                <td width="105px" style="background-color:#FFFF99">
+                <select disabled class="form-control one-twenty oneTwentyNumbersClass" id="oneTwentyNumbersId">
+                  </select>
+                  </td>
+                <td style="background-color:#FFFF99">
+                <input type="text" value="Event Name" readonly placeholder="Event Name" class="invoiceReadyClass"></td>
+                <td width="150px" style="background-color:#FFFF99">
+                  <select disabled class="form-control selectMailClass" id="selectMailId">
+                    <option selected>Select Mail</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td style="background-color:#FFFF99">
+                  <select disabled class="form-control selectSmsClass" id="selectSmsId">
+                    <option selected>Select SMS</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td style="background-color:#FFFF99">
+                  <select disabled class="form-control selectWhatsappClass" id="selectWhatsappId">
+                    <option selected>Select Whatsapp</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td style="background-color:#FFFF99">
+                  <select disabled class="form-control selectCallClass" id="selectCallId">
+                    <option selected>Select Call</option>
+                    <option>New</option>
+                  </select>
+                </td>
+                <td style="background-color:#FFFF99"><i class="fa fa-plus" aria-hidden="true"></i></td>
+              </tr>
+			
+            </table>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="save-div">
+            <button type="button" id="edit">Edit</button>
+            <button type="button" id="saveData">Save</button>
+          </div>
+
+         <div style="text-align: center;"><p id="setReminderMessage"></p></div>
+
+        </div>
+
+
+      </section>

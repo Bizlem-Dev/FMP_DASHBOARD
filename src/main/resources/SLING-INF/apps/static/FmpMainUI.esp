@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>FMP | APPLICATION</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.jqueryscript.net/demo/jQuery-Multiple-Select-Plugin-For-Bootstrap-Bootstrap-Multiselect/css/bootstrap-multiselect.css">
+  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/styles/set_reminder.css">
+ <%--  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/styles/field_mapping.css"> --%>
+  
+  <style type="text/css">
+    .generate-document-dialog{
+      width:30%;
+    }
+  </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+<%   var session1 = request.getSession();
+var lgtype=request.getParameter('lgtype');
+			var lgtypesession=session1.getAttribute('lgtype');
+			if(lgtype!=null && !lgtype.equalsIgnoreCase("") && !lgtype.equalsIgnoreCase("null") ){
+			session1.setAttribute("lgtype", lgtype);
+			}
+			%>
+	<form>
+		<input type=hidden id="email" name="email"
+			value="<%=request.getRemoteUser()%>" />
+			<input type=hidden id="lgtype" name="lgtype"
+			value="<%=session1.getAttribute('lgtype')%>" />
+			
+			<input type=hidden id="remoteuser" name="remoteuser"
+              value="<%=request.getRemoteUser()%>" />
+			
+	</form>
+
+<div class="wrapper">
+  <header class="main-header">
+    <a href="index2.html" class="logo">
+      <!-- <span class="logo-mini"><b>A</b>LT</span> -->
+      <span class="logo-lg"><b>FMP</b></span>
+    </a>
+    <nav class="navbar navbar-static-top">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
+              <span class="hidden-xs">Alexander Pierce</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- <li class="user-header">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <p>
+                  Alexander Pierce - Web Developer
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li> -->
+               <li class="user-body text-left">
+                <div class="row">
+                  <!-- <div class="col-md-12">
+                      <div class="form-group">
+                      <a href="#">Switch workspace</a>
+                    </div>
+                  </div> -->
+                  <!-- <div class="col-md-12">
+                    <div class="form-group">
+                      <a href="#">Account</a>
+                    </div>
+                  </div> -->
+                  <!-- <div class="col-md-12">
+                    <div class="form-group">
+                      <a href="#">Inbox</a>
+                    </div>
+                  </div> -->
+                  <div class="col-md-12">
+                      <a href="#">Product updates</a>
+                  </div>
+                </div>
+              </li> 
+              <li class="user-footer">
+                <!-- <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile Setting</a>
+                </div> -->
+                <div class="pull-right">
+                  <!-- <a href="#" class="btn btn-default btn-flat">Logout</a> -->
+                  
+                  <%
+											if (request.getRemoteUser() != null && !request.getRemoteUser().equals("anonymous")
+													&& !request.getRemoteUser().equals("admin")) {
+										%>
+										<a href="javascript:void(0)" class="btn btn-default btn-flat"
+											onclick="logout('<%=currentNode.session.getRootNode().getNode("content").getNode("user")
+						.getNode(request.getRemoteUser().replace("@", "_")).secondaryId%>')">Logout
+										</a>
+										<%
+											}
+										%>
+                  
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <!-- <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Alexander Pierce</p><br>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div> -->
+     <!--  <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </form> -->
+      <ul class="sidebar-menu" data-widget="tree">
+         <li class="header">MAIN NAVIGATION</li>
+        <!-- <li class="active">
+          <a href="index2.html">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li> -->
+        <!-- <li class="treeview">
+          <a href="#">
+            <i class="fa fa-file" aria-hidden="true"></i> <span>Document Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="files.html"><i class="fa fa-circle-o"></i>Files</a></li>
+            <li><a href="folder.html"><i class="fa fa-circle-o"></i> Folder</a></li>
+            <li><a href="trail.html"><i class="fa fa-circle-o"></i>Trail</a></li>
+          </ul>
+        </li> -->
+        <!-- <li>
+          <a href="contactUs.html">
+            <i class="fa fa-envelope-o"></i> <span>Contact</span>
+          </a>
+        </li>
+        <li>
+          <a href="contact-detail.html">
+            <i class="fa fa-user"></i> <span>Contact Detail</span>
+          </a>
+        </li>
+        <li>
+          <a href="report.html">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Report</span>
+          </a>
+        </li> -->
+        <li class="setReminderA active">
+          <a href="#setReminder" data-toggle="tab">
+            <i class="fa fa-bell-o"></i> <span>Set Reminders</span>
+          </a>
+      </li>
+      <li class="recurringPaymentsA">
+          <a href="#recurringPayments" data-toggle="tab">
+            <i class="fa fa-credit-card" aria-hidden="true"></i> <span>Recurring Payments</span>
+          </a>
+      </li>
+      <li class="fmpSettingsA">
+        <a href="#fmpSettings" data-toggle="tab">
+          <i class="fa fa-wrench" aria-hidden="true"></i> <span>FMP Settings</span>
+        </a>
+      </li>
+      <li class="paymentsA">
+          <a  href="#payments" data-toggle="tab">
+            <i class="fa fa-money" aria-hidden="true"></i> <span>Payments</span>
+          </a>
+      </li>
+      <li class="fmpDashboardA">
+        <a  href="#fmpDashboard" data-toggle="tab">
+          <i class="fa fa-pie-chart" aria-hidden="true"></i> <span>FMP Dashboard</span>
+        </a>
+      </li>
+      </ul>
+    </section>
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  
+ <!-- <div class="tab-content">  -->
+  
+  
+ <%--  <div id="fmpSettings" class="content-wrapper tab-pane">
+				<%
+					load("/apps/FMP_CSS_AND_JS_AND_ESP/common/field_mapping.esp");
+				%>
+			</div> --%>
+  
+  <div id="setReminder" class="content-wrapper tab-pane">
+				<%
+					load("/apps/FMP_CSS_AND_JS_AND_ESP/common/set_reminder.esp");
+				%>
+			</div>
+			
+			
+  
+<!-- </div> -->
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2019 </strong> All rights
+    reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+<!-- jQuery 3 -->
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/adminlte.min.js"></script>
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/custom.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<!-- Sparkline -->
+<script src="https://www.jqueryscript.net/demo/jQuery-Multiple-Select-Plugin-For-Bootstrap-Bootstrap-Multiselect/js/bootstrap-multiselect.js"></script>
+
+<script type="text/javascript">
+
+function logout(uid){
+	$.ajax({
+							type : 'GET',
+							url : '<c:out value="http://bluealgo.com:8078/OpenFireClient/Logout.jsp',
+							data : {
+								username : uid
+							},
+							complete : function() {
+								window.location = "https://bluealgo.com:8083/portal/logout.jsp";
+							}
+						});
+			}
+
+</script>
+
+</body>
+</html>

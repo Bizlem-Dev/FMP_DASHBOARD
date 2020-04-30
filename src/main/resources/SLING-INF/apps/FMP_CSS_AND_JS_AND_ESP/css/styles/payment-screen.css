@@ -1,0 +1,144 @@
+input[type=radio]{
+    -webkit-appearance: button;
+    -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+    -moz-appearance: checkbox;    /* Firefox */
+}
+
+.title{
+    font-weight:600;
+    font-size:3rem;
+    margin-left:6rem;
+}
+.labels{
+    margin-right:0.5rem;
+    margin-left:0.5rem;
+    font-weight:normal;
+}
+.content-wrapper{
+    background-color: white;
+}
+.company-name{
+    font-size:2rem;
+    font-weight: 600;
+}
+.type-banking{
+    margin:4rem;  
+    margin-left:0;  
+    display: flex;
+    justify-content: space-evenly;
+    width:100%
+}
+
+
+.payment-details-table{
+    margin:0 auto;
+    margin-top:2rem;  
+    width:67%;
+    font-size: 1.5rem;
+    font-weight:bold;
+    border:1px solid black
+}
+
+.payment-details-table td{ 
+   padding:0.5rem;
+   text-align:center;
+   border:1.5px solid black
+}
+
+.payment-details-table tr td:nth-child(1){
+    background-color: #C9DAF8;
+}
+
+.pay-div{
+    margin:1rem;
+    display:flex;
+    justify-content: center;
+}
+
+.pay-div button{
+    background-color:#0000FF;
+    color:white;
+    padding:0.6rem 3rem;
+}
+
+.cheque{
+   
+    display: flex;
+    flex-direction: row;
+    margin-top:1rem;
+  }
+  
+.cheque-child{
+    margin-top:1rem;
+    display:flex;
+    justify-content: left;
+    margin-left: 16rem;
+}
+
+
+.cheque input[type="text"]{
+    border:1px solid black
+}
+
+.cheque-date{
+    display:flex;
+    margin-top:2rem;
+    justify-content: left;
+    margin-left:6rem;
+}
+
+.cheque-date-child{
+    display: flex;
+    flex-direction: row;
+    margin:2rem;
+    margin-left:0;
+
+}
+
+.cheque-date input{
+    border: 1px solid black;
+    margin-left:6.5rem;
+}
+
+.save-div{
+    display:flex;
+    justify-content: center;
+    width:100%;
+    margin-top:3rem;
+}
+
+.save-div button{
+    background-color:#0000FF;
+    color:white;
+    padding:0.6rem 3rem;
+}
+
+#company-logo{
+    width: 11rem;
+    height: 11rem;
+    margin-top: -2rem;
+}
+
+.remarks{
+    margin-top:2rem;
+    margin-left:16.9rem;
+    display:flex;
+    align-items: center;
+}
+
+.content{
+    min-height:700px;
+}
+
+
+/* media queries */
+@media only screen and (max-width: 375px) {
+        .cheque-date{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cheque-date-child label{
+            width:10rem;
+        }
+  }

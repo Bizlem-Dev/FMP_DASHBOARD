@@ -1,0 +1,157 @@
+th{
+    text-align: center;
+}
+
+input{
+    border:1px solid black;
+}
+
+input[type=radio]{
+    -webkit-appearance: button;
+    -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+    -moz-appearance: checkbox;    /* Firefox */
+}
+.content-wrapper{
+    background-color: white;
+}
+
+.filter-data{
+    display:flex;
+    width:80%;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.filter-data button {
+    background-color: #0000FF;
+    color:white;
+    font-weight:900;
+}
+
+.filter-data i {
+    font-size:2rem;
+    color:#0000FF;
+}
+.filter-data img{
+    vertical-align: bottom;
+}
+
+.holistical-data{
+    margin-top:2rem;
+    display:flex;
+    justify-content: space-between;
+}
+
+.holistical-data div{
+    text-align: center;
+    width:15%;
+    color:white;
+    
+}
+.holistical-data div:nth-child(1){
+    background-color: #0000FF;
+}
+.holistical-data div:nth-child(2){
+    background-color: #37761D;
+}
+.holistical-data div:nth-child(3){
+    background-color: #FBF04A;
+    color:black
+}
+.holistical-data div:nth-child(4){
+    background-color: #E69137;
+}
+.holistical-data div:nth-child(5){
+    background-color: #FF0000;
+}
+.holistical-data div:nth-child(6){
+    background-color: #980000;
+}
+
+.holistical-data h4{
+    font-weight: bold;
+}
+
+.aggregate-data{
+    margin:5rem 0rem;
+    margin-bottom: 0;
+    display: flex;
+}
+
+.percentage-data{
+    background-color:#D9EAD3;
+    color:black;
+    height:20rem;
+    width:40%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.percentage-data h4{
+    padding:2rem;
+}
+
+.invoice-details{
+    display:flex;
+}
+
+.invoice-details h4{
+    padding:0;
+    margin:0;
+    padding-right:1rem !important;
+}
+
+.invoice-filter{
+    display:flex !important;
+    align-items: center;
+    height:5rem;
+}
+
+.invoice-filter input{
+    margin-right:1rem;
+}
+
+.invoice-filter label{
+    margin-right:1rem;
+}
+
+.invoice-table tr:nth-child(1):last-child{
+    background-color: yellow;
+}
+
+.invoice-details{
+    width:100%;
+}
+.invoice-details div:nth-child(1){
+    width:100%;
+}
+.invoice-table{
+    width:100%;
+}
+
+.invoice-details table{
+    width:100%;
+    text-align: center;
+}
+
+.invoice-table tr,td{
+    border:1px solid black;
+}
+
+.graphical-data{
+    margin-left:11rem;
+    width:100%;
+}
+
+select{
+    width:18rem!important;
+}
+
+
+.holistical-data-new div{
+text-align: center;
+width:20%;
+color:white;
+
+}

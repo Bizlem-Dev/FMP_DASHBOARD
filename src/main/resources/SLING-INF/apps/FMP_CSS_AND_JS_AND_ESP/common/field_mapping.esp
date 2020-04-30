@@ -1,0 +1,60 @@
+<!-- <section class="content">
+        <div class="title">
+          heading
+          <h3 class="headline">Field Mapping</h3>
+        </div>
+        Mapping Data Starts
+        <div class="mapping">
+          <div>
+            <select class="form-control">
+              <option>MP_InvoiceNumber V</option>
+              <option>MP_InvoiceNumber - 123ABC</option>
+            </select>
+          </div>
+          <div><span class="equal">=</span></div>
+
+          <div>
+
+            <select class="form-control">
+              <option>Invoice Number</option>
+              <option>MP_InvoiceNumber 234BCD</option>
+            </select>
+          </div>
+        </div>
+        <div class="mapping">
+          <div>
+            <select class="form-control">
+              <option>FMP_InvoiceDate V</option>
+              <option>FMP_InvoiceDate 23/04/2020</option>
+            </select>
+          </div>
+          <div><span class="equal">=</span></div>
+          <div>
+            <select class="form-control">
+              <option>Bill Date</option>
+              <option>Bill Date 24/07/2020</option>
+            </select></div>
+        </div>
+        <div class="mapping">
+          <div>
+            <select class="form-control">
+              <option>FMP_InvoiceDueDate V</option>
+              <option>FMP_InvoiceNumber 345CDE</option>
+            </select>
+          </div>
+          <div><span class="equal">=</span></div>
+          <div>
+            <select class="form-control">
+              <option>Payment Due On</option>
+              <option>Payment After</option>
+            </select>
+          </div>
+        </div>
+        Mapping Data Ends Here
+        <div class="row">
+          <div class="save-div">
+            <button type="button">Edit</button>
+            <button type="button">Save</button>
+          </div>
+          <div>
+      </section> -->

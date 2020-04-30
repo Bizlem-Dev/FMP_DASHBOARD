@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>DASHBOARD</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://www.jqueryscript.net/demo/jQuery-Multiple-Select-Plugin-For-Bootstrap-Bootstrap-Multiselect/css/bootstrap-multiselect.css">
+  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">  
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/css/styles/dashboard.css">
+  
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<input type="hidden" id="email" value= "<%=request.getParameter('email')%>">
+<input type="hidden" id="lgtype" value= "<%=request.getParameter('lgtype')%>">
+<input type="hidden" id="group" value= "<%=request.getParameter('group')%>">
+
+  <div class="wrapper">
+    <header class="main-header">
+      <a href="index2.html" class="logo">
+       <!--  <span class="logo-mini"><b>A</b>LT</span> -->
+        <span class="logo-lg"><b></b></span>
+      </a>
+      <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> -->
+                <span class="hidden-xs">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- <li class="user-header">
+                  <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  <p>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2012</small>
+                  </p>
+                </li> -->
+                <li class="user-body text-left">
+                  <div class="row">
+                   <!--  <div class="col-md-12">
+                      <div class="form-group">
+                        <a href="#">Switch workspace</a>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <a href="#">Account</a>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <a href="#">Inbox</a>
+                      </div>
+                    </div> -->
+                    <div class="col-md-12">
+                      <a href="#">Product updates</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="user-footer">
+                 <!--  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Profile Setting</a>
+                  </div> -->
+                  <div class="pull-right">
+                    <a href="#" class="btn btn-default btn-flat">Logout</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <aside class="main-sidebar">
+      <section class="sidebar">
+       <!--  <div class="user-panel">
+          <div class="pull-left image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>Alexander Pierce</p><br>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div>
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form> -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">MAIN NAVIGATION</li>
+         
+          <li class="active">
+            <a href="dashboard.html">
+              <i class="fa fa-money" aria-hidden="true"></i> <span>Dashboard</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+
+        <div class="filter-data">
+          <div>
+            <!--<select class="form-control">
+              <option value="From V">From V</option>
+              <option value="From V">From D</option>
+            </select>-->
+             <input type='text' class="Date form-control" placeholder="From Date" id="cr_targetdate"/>
+            
+          </div>
+          <div>
+            <!-- <select class="form-control">
+              <option value="To V">To V</option>
+              <option value="From V">To D</option>
+            </select>-->
+             <input type='text' class="Date form-control" placeholder="To Date" id="cr_targetdate"/>
+            
+          </div>
+          <div id="eventlist_template_div">
+            <select class="form-control" id="eventlist_template">
+            
+             
+            </select>
+          </div>
+          <div>
+            <button onclick="showdocuemntcount()">Go</button>
+          </div>
+          <div>
+            <!-- empty div -->
+          </div>
+          <div>
+            <!-- empty div -->
+          </div>
+          <div>
+            <i class="fa fa-download"></i>
+            <img width=50 height=30 src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/dist/img/excel.png" />
+          </div>
+        </div>
+
+       <div class="holistical-data">
+          <div style="height: 80px">
+            <h4>Invited</h4>
+            <span id="show_sentcount"> </span><br>
+            <span></span>
+          </div>
+          <div style="height: 80px;background-color: #bf2dbb;">
+            <h4>Read</h4>
+            <span id="show_opencount"> </span><br>
+            <span></span>
+          </div>
+          <div style="height: 80px;background-color:#37761D;color:white">
+            <h4>Downloaded</h4>
+            <span id="show_downloadcount"> </span><br>
+            <span></span>
+          </div>
+          <div style="height: 80px;background-color: #e35f4a;">
+            <h4>Unread</h4>
+            <span id="show_unopencount"> </span><br>
+            <span></span>
+          </div>
+          <!--<div>
+            <h4>60-90 Days</h4>
+            <span>Inv:: 0</span><br>
+            <span>Amount:: 0</span>
+          </div>
+          <div>
+            <h4>>90 Days</h4>
+            <span>Inv:: 0</span><br>
+            <span>Amount:: 0</span>
+          </div>-->
+        </div>
+
+
+        <div class="aggregate-data" style="display:none;">
+          <div class="percentage-data">
+            <h4>Attendee Ratio(attended/total) : 65%</h4>
+
+            <h4>Total collection : 55%</h4>
+          </div>
+          <div class="graphical-data">
+            <ul class="nav nav-tabs">
+            <li  class="active" id="bar"><a style="color:black" href="#">Bar Graph</a></li>
+              <li  id="pie"><a href="#" style="color:black">Pie Chart</a></li>
+              
+            </ul>
+            <!-- The pie and bar graphs are rendered in the below div -->
+            <div id="chartContainer" style="height: 20rem; width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="invoice-details" style="margin-top: 5rem;">
+           <div>
+           <!--   <div class="invoice-filter">
+              <h4>Invoice Details</h4>
+
+              <div><input type="radio"></div>
+              <div><label class="labels">All</label></div>
+
+              <div><input type="radio"></div>
+              <div><label class="labels">Open</label></div>
+
+              <div><input type="radio"></div>
+              <div><label class="labels">Closed</label></div>
+
+              <div><input type="radio"></div>
+              <div><label class="labels">Delayed</label></div>
+              
+              <div><input type="radio"></div>
+              <div><label class="labels" >Custom</label></div>
+              <div> <select class="form-control">
+                <option value="From V">From V</option>
+                <option value="From V">From D</option>
+              </select></div>
+              
+            </div>-->
+            <div class="invoice-table" id="invoice-table-id" style="display:none">
+              <table>
+                <tr>
+                  <th>S No.</th>
+                  <th>Event Name</th>
+                  <th>Type</th>
+                  <th>Invitees</th>
+                  <th>Invited</th>
+                  <th>Read</th>
+                  <th>downloaded</th>
+                  <th>Attended</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Worldcup</td>
+                  <td>sports</td>
+                  <td>Mumbai</td>
+                  <td>2070</td>
+                  <td>2000</td>
+                  <td >1800</td>
+                  <td >70</td>
+                </tr>
+				<tr>
+                  <td>2</td>
+                  <td>Godrej Garden City_Ahmedabad</td>
+                  <td>campaign</td>
+                  <td>Ahmedabad</td>
+                  <td>3</td>
+                  <td>2</td>
+                  <td >1</td>
+                  <td >1</td>
+                </tr>
+
+              </table>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2019 </strong> All rights
+      reserved.
+    </footer>
+  </div>
+  
+ <script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/bootstrap-datepicker.min.js"></script>
+
+<script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/adminlte.min.js"></script>
+<%-- <script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/custom.js"></script> --%>
+ <script src="<%=request.getContextPath()%>/apps/FMP_CSS_AND_JS_AND_ESP/js/WorkflowDashbord.js"></script> 
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<!-- Sparkline -->
+<script src="https://www.jqueryscript.net/demo/jQuery-Multiple-Select-Plugin-For-Bootstrap-Bootstrap-Multiselect/js/bootstrap-multiselect.js"></script>
+      
+
+  <!-- Google chart -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script>
+    //When the file and all the resources are loaded
+    window.onload = function () {
+      
+    	$('.Date').datepicker({
+    	      autoclose: true,
+    	      todayHighlight: true
+    	  });
+    	
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      // Draw the chart and set the chart values
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['', '', { role: 'style' }],
+        /* ['Work', 8,'#b87333'],
+        ['TV', 4 ,'gold'], */
+        ['', 8,'#b87333'],
+        ['', 2, 'silver'],
+        ['', 4 ,'gold'],
+        
+      ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'', 'width':'100%', 'height':'100%',legend: { position: "none" },};
+
+        // Display the chart inside the <div> element with id="chartContainer"
+        var chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
+        chart.draw(data, options);
+      }
+    }
+
+    $("#pie").click(function () {
+      $("#pie").addClass('active');
+      $("#bar").removeClass('active');
+      
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      // Draw the chart and set the chart values
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+       /*  ['Work', 8],
+        ['Eat', 2],
+        ['TV', 4],
+        ['Gym', 2],
+        ['Sleep', 8] */
+        
+        ['', 8],
+        ['', 2],
+        ['', 4],
+        ['', 2],
+        ['', 8]
+      ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'', 'width':'100%', 'height':'100%'};
+
+        // Display the chart inside the <div> element with id="chartContainer"
+        var chart = new google.visualization.PieChart(document.getElementById('chartContainer'));
+        chart.draw(data, options);
+      }
+     
+    })
+    $("#bar").click(function () {
+      $("#bar").addClass('active');
+      $("#pie").removeClass('active');
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      // Draw the chart and set the chart values
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['', '', { role: 'style' }],
+        /* ['Work', 8,'#b87333'],
+        ['Eat', 2, 'silver'],
+        ['TV', 4 ,'gold'], */
+        ['', 8,'#b87333'],
+        ['', 2, 'silver'],
+        ['', 4 ,'gold'],
+        
+      ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'', 'width':'100%', 'height':'100%',legend:{position:'none'}};
+
+        // Display the chart inside the <div> element with id="chartContainer"
+        var chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
+        chart.draw(data, options);
+      }
+    })
+  </script>
+
+</body>
+
+</html>
